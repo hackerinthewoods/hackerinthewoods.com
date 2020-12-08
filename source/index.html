@@ -1,0 +1,28 @@
+
+{% extends 'root.template.njk' %}
+
+{% block content %}
+TAGS
+{% for tag, tagData in data.tags %}
+<p class='text-yowli'>{{tag|safe}}</p>
+{%for tagItem in tagData %}
+    <a href="{{tagItem.path|safe}}/{{tagItem.slug|safe}}">{{tagItem.title|safe}}</a>
+
+    {% endfor %}
+{% endfor %}
+<hr/>
+{% for category, categoryData in data.categories %}
+<p>{{category|safe}}</p>
+{%for categoryItem in categoryData %}
+    <a href="{{categoryItem.path|safe}}/{{categoryItem.slug|safe}}">{{categoryItem.title|safe}}</a>
+
+    {% endfor %}
+{% endfor %}
+
+    <hr/>
+{% for post in data.markdownFiles %}
+<a href="{{post.data.path|safe}}/{{post.data.slug|safe}}">{{post.data.title}}</a>
+<time>{{post.data.published_date}}</time>
+<hr/>
+{% endfor %}
+{% endblock %}

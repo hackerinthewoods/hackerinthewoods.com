@@ -1,0 +1,7 @@
+<html>
+  {% include './includes/head.html.njk' %}
+  <body>
+    {% block content %}{% endblock %}
+    {{content|safe}}
+  </body>
+</html>

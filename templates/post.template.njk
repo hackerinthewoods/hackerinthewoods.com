@@ -1,0 +1,16 @@
+<html>
+  <head>
+    {% include './includes/head.html.njk' %}
+    <meta property="og:site_name" content="{{data.site_name}}">
+    <meta property="og:title" content="{{ data.title }} {{ data.title_site_separator }} {{ data.site_name }}">
+    <meta property="og:description" content="{{ data.description }}">
+    {% if data.cover_image %}<meta property="og:image" content="{{ data.site.site_url }}/assets/images/{{ data.cover_image }}">{% endif %}
+    <meta property="og:url" content="{{ data.site.site_url }}/{{ data.slug }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image:alt" content="{{ data.title }}">
+    <meta name="twitter:site" content="{{data.site.twitter_handle}}">
+  </head>
+  <body>
+    {{content|safe}}
+  </body>
+</html>

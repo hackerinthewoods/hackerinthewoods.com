@@ -1,0 +1,8 @@
+{
+  "site_name": "The Hacker in the Woods",
+  "site_url": "https://hackerinthewoods.com",
+  "default_title": "The Hacker in the Woods",
+  "default_description": "Articles about TypeScript, Serverless, Software Engineering and other topics.",
+  "title_site_separator": "·",
+  "twitter_handle": "@hackrinthewoods"
+}
