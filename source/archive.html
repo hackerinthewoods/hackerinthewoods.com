@@ -1,0 +1,17 @@
+{% extends 'root.template.njk' %}
+
+{% block content %}
+{%- include 'includes/top_nav.html.njk' -%}
+<main class="p-2 md:p-4 prose mx-auto">
+    <div class="">
+        {% for post in data.markdownFiles %}
+        {% if post.data.published %}
+        <div class="flex justify-between">
+                <a href="{{ post.data.path|safe }}/{{ post.data.slug|safe }}">{{ post.data.title }}</a>
+                <time>{{ post.data.published_date }}</time>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</main>
+{% endblock %}

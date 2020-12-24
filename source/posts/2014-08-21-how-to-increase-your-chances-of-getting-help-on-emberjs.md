@@ -1,8 +1,10 @@
 ---
 title: 'How to increase your chances of getting help on #emberjs'
 layout: post
-categories:
+tags:
   - Ember
+category: The Workshop
+published: true
 ---
 I live on an [Island][1]. If I need help with something, it&#8217;s not always easy to get it right away. Sometimes I have to figure something out for myself, like a pleb. But enough of my Mountain Man ramblings.
 

@@ -4,6 +4,7 @@ layout: post
 cover_image: /images/posts/the-fog-john-houseman-campfire.jpg
 categories:
   - Controllers
+published: true
 ---
 The leaves are falling from the trees around the Island. Fall, or as I still like to call it, Autumn, is here. The temperature is getting a little cooler now, and the nights are drawing in, so pull up close for this tale of the Ghostly Routeless Controller.
 
@@ -23,7 +24,7 @@ We&#8217;re going to need four things to implement this feature:
 
 Let&#8217;s look at the `Controller` first.
 
-{%highlight javascript linenos%}
+~~~javascript
 App.DaveyJonesLockerController = Ember.ArrayController.extend({
   actions: {
     addSoul: function() {
@@ -38,7 +39,7 @@ App.DaveyJonesLockerController = Ember.ArrayController.extend({
     }
   }
 });
-{% endhighlight %}
+~~~
 
 We&#8217;re declaring an `ArrayController` because our `DaveyJonesLockerController` is going to hold a collection of Lost Souls. The core action is `addSoul`, which has the following tasks:
 
@@ -51,14 +52,14 @@ Finally, we declare an action called `emptyLocker` for handling when Davey is ti
 
 But at this point, Ember won&#8217;t know about our `DaveyJonesLockerController`, and no `Route` we have defined will set it up. For that, we need an `Initializer`:
 
-{%highlight javascript linenos%}
+~~~javascript
 Ember.Application.initializer({
   name: 'daveyJonesLocker',
   initialize: function(container, application){
     application.inject('route', 'locker', 'controller:davey-jones-locker');
   }
 });
-{% endhighlight %}
+~~~
 
 Again, it&#8217;s very, almost childishly, simple. We use the `Initializer` and the convenience method `inject` available on the `application` variable to inject into any routes in the `Container` an instance of our `DaveyJonesLockerController`, and make it available from the `locker` property. As an aside, we could also have injected into any `Controller` like so:
 
@@ -70,28 +71,14 @@ And Controllers would also subsequently have an `locker` property they could acc
 
 Next, we build our `Template` that will be used with the `DaveyJonesLockerController`:
 
-{%highlight html linenos%}
-{% raw %}
-<button {{action 'addSoul'}}>Add soul</button>
-{{#if length}}
-  <ul class='soul-list'>
-    {{#each person in model}}
-      <li>{{person.name}}</li>
-    {{/each}}
-  </ul>
-  <button class='flush-locker' {{action 'emptyLocker'}}>Empty Locker</button>
-{{/if}}
-{% endraw %}
-{%endhighlight%}
+~~~html
+~~~
 
 In this `Template`, we&#8217;re saying if `length` isn&#8217;t a truthy value (in this case greater than zero, i.e. we have Lost Souls), then don&#8217;t display anything. Well, where does `length` come from? In this case `length` is found as a property on `ArrayController` and returns the underlying length of the `Array` the Controller is wrapping. The `Template` is said to be &#8216;proxying&#8217; the property lookup onto the ArrayController.
 
 Next, we simply iterate on the `model` that the `ArrayController` represents and display the appropriate HTML for each Lost Soul.
 
 Lastly, in our main Application Template, we need to use the `render` [helper][3]:
-
-    {{render 'davey-jones-locker'}}
-
 
 This tells Ember to fire up the `DaveyJonesLockerController` and when rendering the Application `Template`, render the output of the `DaveyJonesLockerController` here.
 
@@ -103,7 +90,7 @@ Here&#8217;s the complete example:
 
 Here&#8217;s how you might add souls to the locker from, say, an action in the Index template. We know from our Initializer that we injected a `locker` property that gives us access to our `DaveyJonesLockerController` onto all `Routes`. First, in the `IndexRoute`, we&#8217;ll capture the `addSoul` action from a button in the template:
 
-{%highlight javascript linenos%}
+~~~javascript
     App.IndexRoute = Ember.Route.extend({
       actions: {
         addSoul: function() {
@@ -111,7 +98,7 @@ Here&#8217;s how you might add souls to the locker from, say, an action in the I
         },
       }
     });
-{% endhighlight %}
+~~~
 
 Next&#8230;well, that&#8217;s it! You&#8217;ve just added a soul from another template into the `DaveyJonesLockerController`.
 

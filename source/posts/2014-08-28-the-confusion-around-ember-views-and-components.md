@@ -1,9 +1,12 @@
 ---
 title: The Confusion Around Ember Views and Components
 layout: post
-categories:
+tags:
   - Ember View Layer
+category: The Workshop
+published: true
 ---
+
 The island that I live on has a year-round population of around 3,000 folks. It&#8217;s a pretty tight knit community. We have our own special online forum, looking like it&#8217;s been running since the Internet began, where Islanders will post useful information, community updates, garage sales announcements and the like. However, it&#8217;s very much a case of being in the right place at the right time. If you don&#8217;t log on to the island forum for a couple of days, you could easily miss that the local Cafe is holding a free all-day pie tasting. And that&#8217;s a total bummer.
 
 The Ember community is still a bit like this. You have to be in the right place at the right time to receive some new wisdom about how things work. This is especially true for the shift that happened with Views and Components.
@@ -20,7 +23,7 @@ Somewhere along the way, I noticed that the community had gone [HAM][1] on using
 
 Googling, I found [this StackOverflow][2] question on the difference between Components and Views, and when to use each. One answer [in particular][3] was advocating basically forgetting about Views and that Tomhuda Katzdale had officially advocated this position:
 
-> According to a training video that was recorded on August 2013, Yehuda Kats and Tom Dale (Ember Core Team Members) told the audience to not use views unless you&#8217;re a framework developer. They&#8217;ve made lots of enhancements to Handlebars and introduced Components, so views are no longer necessary. Views are used internally to power things like {{#if}} and {{outlet}}.
+> According to a training video that was recorded on August 2013, Yehuda Kats and Tom Dale (Ember Core Team Members) told the audience to not use views unless you&#8217;re a framework developer. They&#8217;ve made lots of enhancements to Handlebars and introduced Components, so views are no longer necessary. Views are used internally to power things like {%raw%}{{#if}}{%endraw%} and {%raw%}{{outlet}}{%endraw%}.
 
 And yet the official Guides still had references like:
 
@@ -33,13 +36,13 @@ So I decided to do some investigation. The StackOverflow user mentioned &#8216;v
 
 Eventually I found the section in the Gaslight video training: 10.2 Components Q&A @ 26:15 mark
 
-<img src="{{ "/images/posts/Screen-Shot-2014-08-27-at-9.04.52-PM-1024x912.png" | prepend:site.baseurl }}" alt="Tom Dale" width="300" height="267" class="alignnone size-medium wp-image-78" />
+<img src="{{ '/assets/images/posts/Screen-Shot-2014-08-27-at-9.04.52-PM-1024x912.png'|prepend(data.site.site_url) }}" alt="Tom Dale" width="300" height="267" class="alignnone size-medium wp-image-78" />
 
 > Tom Dale: There was a general question about Handlebars, and probably some of you have gone through older Ember app examples and probably seen a lot of View classes. Basically don&#8217;t use Views is my answer. Since those examples were written we&#8217;ve added a lot more features to Handlerbars [..] we&#8217;ve added Components, [..] in general I would say Views are not something that we would expect most developers to be writing&#8230; they&#8217;re more of an internal book-keeping object at this point. You should use Components.
 
 Then at 30m:
 
-<img src="{{ "/images/posts/Screen-Shot-2014-08-27-at-9.10.54-PM.png" | prepend:site.baseurl }}" alt="Yehuda Katz" width="300" height="179" class="alignnone size-medium wp-image-79" />
+<img src="{{ '/assets/images/posts/Screen-Shot-2014-08-27-at-9.10.54-PM.png'|prepend(data.site.site_url) }}" alt="Yehuda Katz" width="300" height="179" class="alignnone size-medium wp-image-79" />
 
 > Yehuda Katz: View is basically an internal implementation detail that is the root class of things like #if, outlets, components&#8230;you could use a View but then you&#8217;re a Framework developer. You should instead use one of the things that we have built for you that uses View and the thing that is closest to View but still has better semantics is Component.
 
@@ -52,53 +55,42 @@ Incidentally, here&#8217;s a handy table that Yehuda drew in the video:
     <td>
       &nbsp;
     </td>
-
     <td>
       controller
     </td>
-
     <td>
       scope
     </td>
   </tr>
-
   <tr>
     <td>
       render
     </td>
-
     <td>
       own
     </td>
-
     <td>
       isolated
     </td>
   </tr>
-
   <tr>
     <td>
       partial
     </td>
-
     <td>
       parent
     </td>
-
     <td>
       parent
     </td>
   </tr>
-
   <tr>
     <td>
       component
     </td>
-
     <td>
       none
     </td>
-
     <td>
       isolated
     </td>

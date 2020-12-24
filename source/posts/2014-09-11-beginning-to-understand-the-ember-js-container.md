@@ -6,7 +6,9 @@ categories:
   - The Container
 tags:
   - core
+published: true
 ---
+
 I love Libraries. I&#8217;ve always loved them. Vast storehouses of knowledge, and thanks to the [Dewey Decimal Classification][1], storehouses where things can very easily be found. Here on the Island, we have a tiny library and thanks to the convention used to store the books, I will be able to find the same book here on the Island or in Vancouver using the same lookup system, in the same locations. It is the original convention over configuration, as previously libraries would order their books based on the order of acquisition meaning the same book would be hard to find in different libraries.
 
 When we built web apps back in the Old World, it was easy to not have to think about our objects because the Page request-response cycle meant that mostly everything we relied on – controllers, views etc – was thrown away and rebuilt on the server from scratch with every request.

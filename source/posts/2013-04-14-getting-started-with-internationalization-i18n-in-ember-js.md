@@ -3,6 +3,7 @@ layout: post
 published: true
 title: Getting started with Internationalization (i18n) in Ember.js
 description: Writing your Ember.js app to include Internationalization support is easy.
+category: The Workshop
 ---
 
 Writing your Ember.js app to include Internationalization support is easy. Here's a quick guide on how to implement it. 
@@ -13,7 +14,7 @@ Writing your Ember.js app to include Internationalization support is easy. Here'
   ```CLDR.defaultLocale = 'en';```
 4. Lastly, create a file called ```i18n.js``` that you will load after ```CLDR.js``` and ```ember-i18n```. This is where you will store your i18n strings. 
 5. Inside the ```i18n.js``` file, simply setup an object like so, with the appropriate keys for your application:
-    {% highlight javascript %}
+    ~~~javascript
     Em.I18n.translations = {
       'user.edit.title': 'Edit User',
       'user.followers.title.one': 'One Follower',
@@ -22,7 +23,7 @@ Writing your Ember.js app to include Internationalization support is easy. Here'
       'button.add_user.text': 'Add',
       'button.add_user.disabled': 'Saving...'
     };
-    {% endhighlight %}
+    ~~~
 
 In your Handlebars templates, you can now reference the usual ```t``` object to get the i18n strings:
 

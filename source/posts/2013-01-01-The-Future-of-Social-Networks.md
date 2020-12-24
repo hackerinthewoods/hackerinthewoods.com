@@ -2,6 +2,7 @@
 layout: post
 published: true
 title: The Future of Social Networks
+category: The Backwoods
 ---
 
 We are surrounded by noise. The environment around us is noisy; the streets, the airwaves, the oceans. The Universe has a constant background hiss that fills the void between the stars, known as the [Cosmic Background Radiation](http://en.wikipedia.org/wiki/Cosmic_background_radiation). Additionally, there's the concept of [Entropy](http://en.wikipedia.org/wiki/Entropy), which says that all organized systems eventually degrade into complete, unorganized chaos. 

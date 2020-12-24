@@ -3,13 +3,14 @@ layout: post
 published: true
 title: A simple Rake task to update Ember.js
 description: Writing your Ember.js app to include Internationalization support is easy.
+category: The Workshop
 ---
 
 I was using a Rake task that I had seen [Ivan Vanderbyl](https://twitter.com/IvanVanderbyl) using to update the Ember source files to whatever was the latest available. It assumed you were using the ```ember-rails``` gem and it would pull down the repos necessary, build the projects, and place the compilation results in the ```vendor``` directory so that the asset pipeline would pick them up. 
 
 Since the Ember team put some work into getting builds served up from S3, the process of getting the latest code has become super simple. All you need is this Rake task in your ```lib/tasks``` folder and away you go:
 
-{% highlight ruby %}
+~~~ruby
 # A simple rake task to update Ember and Ember Data to latest official build from S3.
 #
 # Assumptions:
@@ -57,7 +58,7 @@ namespace :ember do
     end
   end
 end
-{% endhighlight %}
+~~~
 
 Now you can simply say ```rake ember:update``` and if you're using the ```ember-rails``` gem, you'll get the latest builds in no time at all. 
 

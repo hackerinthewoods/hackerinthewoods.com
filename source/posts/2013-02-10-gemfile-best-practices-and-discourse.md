@@ -3,6 +3,7 @@ layout: post
 published: true
 title: Gemfile Best Practices &amp; Discourse
 description: Your Gemfile is often the starting place for new developers to get up to speed on your code. Here are some simple practices that can help new developers get a sense of the makeup and any peculiarities, and keep order in your project's Gemfile.
+category: The Workshop
 ---
 
 This weekend I [did some Boy Scouting](https://github.com/discourse/discourse/pull/93) on the newly released [Discourse project](https://github.com/discourse/discourse). The [Boy Scout Rule](http://www.hans-eric.com/2010/07/26/the-boy-scout-rule/) says:

@@ -2,6 +2,7 @@
   {% include './includes/head.html.njk' %}
   <body>
     {% block content %}{% endblock %}
-    {{content|safe}}
+    {{ content|safe }}
+    {% include './includes/footer.html.njk' %}
   </body>
 </html>

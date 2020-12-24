@@ -1,9 +1,12 @@
 ---
 title: A Simple Auto Expanding Textarea Component
 layout: post
-categories:
+tags:
   - Uncategorized
+category: The Workshop
+published: true
 ---
+
 Greetings! The nights are drawing in pretty quickly here, and it&#8217;s also additionally pretty dark in the morning due to the mountain I live next to and the added darkness is making it pretty difficult to maintain my early morning routines. A short and sweet post this week about how to extend the built-in Ember.js Textarea View so that it auto expands to contain the text inside it, but first a short interlude into a recent poll I ran on Ember.js usage:
 
 <!--more-->
@@ -12,24 +15,27 @@ Greetings! The nights are drawing in pretty quickly here, and it&#8217;s also ad
 
 When we need a `Textarea` in one of our Templates, we can simply use the `textarea` helper like so:
 
-    {{textarea value=notes}}
-
+~~~javascript
+{% raw %}
+{{textarea value=notes}}
+{% endraw %}
+~~~
 
 And that will render a basic text area bound to the `notes` property. But it will be a static `textarea` that does not accommodate content that is larger than its style will permit without scroll bars. What if we wanted the `textarea` to automatically grow vertically as more text is entered, without resorting to any external jQuery plugins?
 
 First of all, we create a new `Component` that `extends` the Ember `TextArea`:
 
-{%highlight javascript linenos%}
+~~~javascript
 App.AutoExpandingTextAreaComponent = Ember.TextArea.extend({
   ... snip ...
 });
-{%endhighlight%}
+~~~
 
-If we just left the new `AutoExpandingTextAreaComponent` as is above, we could use it in any template with `{{auto-expanding-text-area value=notes}}` and its behaviour would be exactly the same as the default `textarea`. So far, so obvious.
+If we just left the new `AutoExpandingTextAreaComponent` as is above, we could use it in any template with {{ '`{{auto-expanding-text-area value=notes}}` '}} and its behaviour would be exactly the same as the default `textarea`. So far, so obvious.
 
 The trick here for us, is that we want the `textarea` to be aware of any keypresses, and change its size accordingly. We&#8217;ll use the `didInsertElement` hook to attach an event listener for `keypress`es on the text area:
 
-{%highlight javascript linenos%}
+~~~javascript
 App.AutoExpandingTextAreaComponent = Ember.TextArea.extend({
   didInsertElement: function(){
 
@@ -52,13 +58,13 @@ App.AutoExpandingTextAreaComponent = Ember.TextArea.extend({
 
   } // didInsertElement
 });
-{% endhighlight %}
+~~~
 
 We&#8217;re careful to make sure that the jQuery event listener runs inside an `Ember.run.next` in order to make sure it happens after Ember has propagated all property updates and settled it&#8217;s internal book-keeping on the Runloop.
 
 Lastly, we want to make sure we tear down the event listener when the element is destroyed, by using the `willDestroyElement` hook:
 
-{%highlight javascript linenos%}
+~~~javascript
 App.AutoExpandingTextAreaComponent = Ember.TextArea.extend({
   didInsertElement: function(){
     Ember.run.next(function() {
@@ -78,7 +84,7 @@ App.AutoExpandingTextAreaComponent = Ember.TextArea.extend({
     this.$().off('keypress');
   }
 });
-{% endhighlight %}
+~~~
 
 Here&#8217;s a working example:
 

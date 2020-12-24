@@ -2,6 +2,7 @@
 layout: post
 published: true
 title: What a Dead Man Named FM-2030 can tell us about the future of user names
+category: The Backwoods
 ---
 
 ![Fereidoun M. Esfandiary](http://upload.wikimedia.org/wikipedia/commons/5/53/FM2030.jpg "Fereidoun M. Esfandiary")

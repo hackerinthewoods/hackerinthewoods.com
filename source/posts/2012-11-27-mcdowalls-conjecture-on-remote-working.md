@@ -1,6 +1,7 @@
 ---
 layout: post
 title: McDowall's Conjecture on Remote Working
+category: The Backwoods
 tags:
 - Industry
 published: true

@@ -1,8 +1,10 @@
 ---
 title: An experiment in refactoring Ember Properties
 layout: post
-categories:
+tags:
   - ember-core
+category: The Workshop
+published: true
 ---
 
 You might have run across the situation where you have lots of properties in a Controller or Component, and they have associated Computed Properties that calculate some presence value. They end up feeling like repetitive boilerplate. 
@@ -13,7 +15,7 @@ How might you go about cleaning them up? Perhaps auto-generating them?
 
 Specifically, what kind of code am I talking about? Something like this:
 
-{%highlight javascript linenos%}
+~~~javascript
 import Ember from 'ember';
 
 let LoginComponent = Ember.Component.extend({
@@ -27,7 +29,7 @@ let LoginComponent = Ember.Component.extend({
 });
 
 export default LoginComponent;
-{% endhighlight %}
+~~~
 
 Typically these properties are the results of requirements from the UI to display different elements on particular states. The template will have some conditionals that lean on these properties to achieve this. Depending on how complex the UI is, you could end up having a few of these state properties. 
 
@@ -54,7 +56,7 @@ _Note that this is a trivial example for the purposes of showing how Higher Orde
 
 And with that in mind lets look at the solution:
 
-{%highlight javascript linenos%}
+~~~javascript
 import Ember from 'ember';
 
 const { computed, on } = Ember;
@@ -90,8 +92,7 @@ let LoginComponent = Ember.Component.extend({
 });
 
 export default LoginComponent;
-
-{% endhighlight %}
+~~~
 
 Unfortunately there's a bit of a hidden trap here. As it turns out `defineProperty` is a relatively slow function, and we've just set it up so that the Component is going to execute it every time its initialized. While the technique above would be fine in something long lived like a `Service, it's no good in a component displayed 100 times. So what do we do? 
 
@@ -99,7 +100,7 @@ Unfortunately there's a bit of a hidden trap here. As it turns out `defineProper
 
 The best way to go about this is to pre-generate an Object with the properties and Computed Properties we need, and then re-extend our component with the pre-generated items before we `export` it. By taking this approach, Ember will only have to do its `defineProperty` magic once and only once.
 
-{%highlight javascript linenos%}
+~~~javascript
 import Ember from 'ember';
 
 const { computed, on } = Ember;
@@ -130,8 +131,7 @@ let LoginComponent = Ember.Component.extend({
 // Export the component with an extra extension of our pre
 // generated attributes and computed properties.
 export default LoginComponent.extend(processedAttrs);
-
-{%endhighlight%}
+~~~
 
 So obviously this got a little messy looking, as changes to optimize for performance usually make things. That said, the technique above could be abstracted out quite easily to wrap the Ember Component class and handle the necessary heavy lifting without all of the ceremony.  
 

@@ -3,6 +3,7 @@ layout: post
 published: true
 title: Run RSpec with Documentation Formatter for Better Specs
 description: The progress formatter hides some really nasty business.
+category: The Workshop
 ---
 
 The default RSpec report formatter is `progress`: it's the one that, hopefully, outputs litte green dots as RSpec executes each Spec. This can lead to serious problems with the structure of your Specs.
@@ -24,7 +25,7 @@ RSpec allows you to use different style report formatters (which you can list by
 
 Let's look at an example:
 
-```rspec
+```ruby
 » rspec -fd spec/requests/tps_2014_spec.rb
 
 CreateAccount

@@ -1,8 +1,10 @@
 ---
 title: Ember Works Best When You Tell Instead Of Ask
 layout: post
-categories:
+tags:
   - Uncategorized
+category: The Workshop
+published: true
 ---
 Welcome to another note from the Ember Zone. This week on the Island we&#8217;ve had a couple of days of really torrential rain, and sunsets like the one above. On one hand this is good because it replenishes the reservoir that we all get our drinking water from. On the other hand it shakes and knocks down all of the leaves from the trees that were ready to fall, which admittedly does create a pretty colourful carpet everywhere. The wind, to the rain, to the leaves, to my driveway. Nature&#8217;s binding system at work.
 

@@ -3,6 +3,7 @@ layout: post
 published: true
 title: The Great Satan - Rails Concerns
 description: Why ActiveSupport::Concern is a really bad thing.
+category: The Workshop
 ---
 
 Corey Haines has already [masterfully expounded](http://blog.coreyhaines.com/2012/12/why-i-dont-use-activesupportconcern.html) on why ```ActiveSupport::Concern``` will lead to you having a Real Bad Time - and you really should read it, but I wanted to write a quick cautionary tale to those thinking about using Concerns and highlight a couple of the more practical pains explicitly.
@@ -11,7 +12,7 @@ Corey Haines has already [masterfully expounded](http://blog.coreyhaines.com/201
 
 ```ActiveSupport::Concern``` may not have been intended to be used this way, but I see it used this way in a lot of Rails projects I've worked on since the introduction of Concerns. I'm talking about discorporated methods:
 
-{% highlight ruby %}
+~~~ruby
 require 'active_support/concern'
 
 module MonsterConcern
@@ -35,7 +36,7 @@ module MonsterConcern
     end
   end
 end
-{% endhighlight %}
+~~~
 
 We have four disembodied methods here, stuck in a file. We get no indication of _whom_ includes this file - if we're lucky the name might reflect that information, but it's still not exact. Where should we go to see where the ```nearby_children``` method is defined?
 

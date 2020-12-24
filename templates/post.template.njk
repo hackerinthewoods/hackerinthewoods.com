@@ -1,16 +1,25 @@
 <html>
   <head>
-    {% include './includes/head.html.njk' %}
-    <meta property="og:site_name" content="{{data.site_name}}">
+    {%- include './includes/head.html.njk' -%}
+    <meta property="og:site_name" content="{{ data.site.site_name }}">
     <meta property="og:title" content="{{ data.title }} {{ data.title_site_separator }} {{ data.site_name }}">
     <meta property="og:description" content="{{ data.description }}">
-    {% if data.cover_image %}<meta property="og:image" content="{{ data.site.site_url }}/assets/images/{{ data.cover_image }}">{% endif %}
+    {%- if data.cover_image -%}
+    <meta property="og:image" content="{{ data.site.site_url }}/assets/images/{{ data.cover_image }}">
+    {%- endif -%}
     <meta property="og:url" content="{{ data.site.site_url }}/{{ data.slug }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image:alt" content="{{ data.title }}">
-    <meta name="twitter:site" content="{{data.site.twitter_handle}}">
+    <meta name="twitter:site" content="{{ data.site.twitter_handle }}">
   </head>
   <body>
-    {{content|safe}}
+    {%- include './includes/top_nav.html.njk' -%}
+    <main class="">
+      <article class='prose lg:prose-3xl p-2 md:p-4 mx-auto'>
+        <h1 class="pt-4">{{ data.title }}</h1>
+        {{ content|safe -}}
+      </article>
+      {% include './includes/footer.html.njk' %}
+    </main>
   </body>
 </html>

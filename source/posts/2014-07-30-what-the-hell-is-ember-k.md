@@ -1,13 +1,14 @@
 ---
 title: What the hell is Ember.K?
 layout: post
-categories:
+tags:
   - ember-core
+category: The Workshop
+published: true
 ---
 Sometimes you&#8217;ll be looking through a code base, or even the Ember source code itself, and you&#8217;ll come across a weird looking snippet like this:
 
     onRegister: Ember.K
-
 
 What is `Ember.K`, why is it being used and should you use it?
 
@@ -79,11 +80,12 @@ You can use this technique when writing views or components, where you have writ
 
 For example, imagine writing the template:
 
-{% highlight html %}
+
+~~~html
 {% raw %}
   <a {{action 'someEvent'}}>Raise Event</a>
-{% endraw %}
-{% endhighlight %}
+  {% endraw %}
+~~~
 
 But you don&#8217;t know what `someEvent` should do yet. Clicking on the element will result in an error in the Console:
 

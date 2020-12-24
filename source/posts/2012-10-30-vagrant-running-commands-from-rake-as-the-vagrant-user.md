@@ -1,8 +1,9 @@
 ---
 layout: post
 published: true
+category: The Workshop
 tags:
-- The Workshop
+- vagrant
 title: 'Vagrant: Run commands from Rake as the vagrant user'
 ---
 

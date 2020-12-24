@@ -1,8 +1,10 @@
 ---
 title: Announcing Ember Sketch!
 layout: post
-categories:
+tags:
   - Projects
+category: The Workshop
+published: true
 ---
 My last post on [How to increase your chances of getting help on #emberjs][1] where I talked about using JSBin to figure things out, I&#8217;ve spent some time over the weekend building a little tool.
 

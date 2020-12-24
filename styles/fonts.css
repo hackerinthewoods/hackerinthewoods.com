@@ -1,4 +1,21 @@
+
+time {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+  font-family: serif;
+  font-size: .875rem;
+}
+
 html,
 body {
   @apply font-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-headers font-bold uppercase;
 }

@@ -1,28 +1,15 @@
-
 {% extends 'root.template.njk' %}
 
 {% block content %}
-TAGS
-{% for tag, tagData in data.tags %}
-<p class='text-yowli'>{{tag|safe}}</p>
-{%for tagItem in tagData %}
-    <a href="{{tagItem.path|safe}}/{{tagItem.slug|safe}}">{{tagItem.title|safe}}</a>
-
-    {% endfor %}
-{% endfor %}
-<hr/>
-{% for category, categoryData in data.categories %}
-<p>{{category|safe}}</p>
-{%for categoryItem in categoryData %}
-    <a href="{{categoryItem.path|safe}}/{{categoryItem.slug|safe}}">{{categoryItem.title|safe}}</a>
-
-    {% endfor %}
-{% endfor %}
-
-    <hr/>
-{% for post in data.markdownFiles %}
-<a href="{{post.data.path|safe}}/{{post.data.slug|safe}}">{{post.data.title}}</a>
-<time>{{post.data.published_date}}</time>
-<hr/>
-{% endfor %}
+{%- include 'includes/top_nav.html.njk' -%}
+<main class="p-2 md:p-4 mx-auto">
+    <div class='p-2 md:max-w-4xl mx-auto'>
+        <div class='grid md:grid-cols-3 gap-4'>
+            {%- import 'includes/category_posts.html.njk' as category_section -%}
+            {{ category_section.render('the cabin', 'Posts about building SaaS, UX and general stuff.', data) }}
+            {{ category_section.render('the workshop', 'Technical posts about Software Engineering etc.', data) }}
+            {{ category_section.render('the backwoods', 'Philosophy, meta, weird, and junk.', data) }}
+        </div>
+    </div>
+</main>
 {% endblock %}

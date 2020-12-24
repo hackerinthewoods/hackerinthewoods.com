@@ -1,8 +1,10 @@
 ---
 title: Ember Application Initializers
 layout: post
-categories:
+tags:
   - Ember Infrastructure
+category: The Workshop
+published: true
 ---
 Ember gives you a powerful mechanism to get you application set up, as well as a way to nicely modularize any tricky things like setting up Websockets.
 
@@ -12,7 +14,7 @@ Ember gives you a powerful mechanism to get you application set up, as well as a
 
 In the last post, [Handling Environment Data with Ember.js][1], we used an Initializer to read and cache environment variables that your App needs to know about. The basic form of an Initializer is:
 
-{%highlight javascript linenos%}
+~~~javascript
 Ember.Application.initializer({
   name: "initializerName",
 
@@ -20,11 +22,11 @@ Ember.Application.initializer({
     ... your code ...
   }
 });
-{% endhighlight %}
+~~~
 
 As you can see, you start off by giving your Initializer a name. This name allows you to later specify an order for the execution of your initializers by specifying either or both of `before` or `after` options, like so:
 
-{%highlight javascript linenos%}
+~~~javascript
 Ember.Application.initializer({
   name: "configReader",
   before: "websocketInit",
@@ -33,9 +35,9 @@ Ember.Application.initializer({
     ... your code ...
   }
 });
-{% endhighlight %}
+~~~
 
-{%highlight javascript linenos%}
+~~~
 Ember.Application.initializer({
   name: "websocketInit",
   after: "configReader",
@@ -44,8 +46,7 @@ Ember.Application.initializer({
     ... your code ...
   }
 });
-{% endhighlight %}
-
+~~~
 
 This will ensure that the `configReader` Initializer runs before the `websocketInit` Initializer.
 
@@ -68,7 +69,7 @@ If your Initializer performs a record lookup, then it&#8217;s vital that the Ini
 
 For example, here&#8217;s an Initializer that looks up the Current user from the store, and injects it into the container, making it easily available in `Routes` and `Controllers`:
 
-{%highlight javascript linenos%}
+~~~javascript
 Ember.Application.initializer({
   name: "currentUserLoader",
   after: "store",
@@ -90,7 +91,7 @@ Ember.Application.initializer({
       });
    }
 });
-{% endhighlight %}
+~~~
 
 
 ## Summary

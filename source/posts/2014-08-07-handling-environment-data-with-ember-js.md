@@ -1,8 +1,10 @@
 ---
 title: Handling environment data with Ember.js
 layout: post
-categories:
+tags:
   - Ember Infrastructure
+category: The Workshop
+published: true
 ---
 It&#8217;s likely that your Ember app is going to require some configuration or environment data as it grows: deployment environment name, feature flags, locale strings and so on.
 
@@ -14,14 +16,14 @@ What&#8217;s the best way to handle this requirement? There are a couple of ways
 
 Ember provides an Initializer mechanism that allows you to inject things into the container, or access the instantiated Application object before the application fully runs. This provides a quick and easy easy way for us to use the Application object as a bucket for environment configuration. A simple Initializer takes the form:
 
-{%highlight javascript linenos%}
+~~~javascript
 Ember.Application.initializer({
   name: 'initializer-name-goes-here',
 
   initialize: function( container, application ) {
   }
 });
-{% endhighlight %}
+~~~
 
 As you can see from the snippet above, we are provided with access to the container, and the instantiated Application instance. Perfect.
 
@@ -31,17 +33,16 @@ The quickest and easiest way to store the Environment data is to write `meta` ta
 
 We can use a convention of naming the `meta` tag with something like `env-` at the beginning to signify that it represents environment data:
 
-{%highlight javascript linenos%}
+~~~html
 <meta name="env-name" value="production">
 <meta name="env-locale" value="en">
-{%endhighlight%}
-
+~~~
 
 ## The configuration Initializer
 
 It might look a little complex, but I&#8217;ve broken each step down with comments:
 
-{%highlight javascript linenos%}
+~~~javascript
 Ember.Application.initializer({
   name: 'config',
 
@@ -90,7 +91,7 @@ Ember.Application.initializer({
     application.get("env").setProperties(envReader.readEnvKeys());
   }
 });
-{% endhighlight %}
+~~~
 
 At a high level, we&#8217;re just pulling out `meta` tags from the DOM, testing if their names start with our chosen convention for environment configuration, generating a Camelized name and mapping the string values to actual Javascript types. The private `_mapType` function even handles converting comma separated values into `Arrays` &#8211; useful for feature flags.
 

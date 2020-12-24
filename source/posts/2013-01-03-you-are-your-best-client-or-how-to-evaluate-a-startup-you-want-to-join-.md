@@ -2,6 +2,7 @@
 layout: post
 published: true
 title: You are your best client (or how to evaluate a startup you think you want to join)
+cateogry: The Cabin
 ---
 
 I was watching AppSumo chief [Noah Kagan](http://twitter.com/noahkagan) giving a talk about how to give your customers _Lovegasms_. You can watch it here:

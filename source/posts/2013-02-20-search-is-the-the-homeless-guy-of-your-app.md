@@ -1,8 +1,9 @@
 ---
 layout: post
 published: true
-title: Search is the homeless guy of your application
+title: Search in applications 
 description: Most people walk past the homeless. They ignore the out-thrust hands, the pleas for 'spare change', and avoid the possibility of making eye contact. Search is the homeless guy or gal of your App.  
+category: The Cabin
 ---
 
 Most people walk past the homeless. They ignore the out-thrust hands, the pleas for 'spare change', and avoid the possibility of making eye contact. Search is the homeless guy or gal of your App. 

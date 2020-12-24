@@ -3,6 +3,7 @@ layout: post
 published: true
 title: Google doesn't do Small Business
 description: Google Reader was always destined to be lead to the Abattoir. It's small business. 
+category: The Cabin
 ---
 
 As the Internet recovers from the summary execution of Google Reader, many people are searching or moving to alternative feed reader services, including me.

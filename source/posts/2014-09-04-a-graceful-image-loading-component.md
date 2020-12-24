@@ -1,9 +1,11 @@
 ---
 title: A Graceful Image Loading Component
 layout: post
-categories:
+tags:
   - Components
   - Uncategorized
+category: The Workshop
+published: true
 ---
 Fall is definitely on its way out here in the Pacific North West. And that means lots of wood has to be chopped for Winter, so you&#8217;ll understand and bear with me if this week&#8217;s article is a little short gem that I&#8217;ve used on several occasions now.
 
@@ -21,7 +23,7 @@ Now, hopefully above you saw a nice little spinning pie, before a lovely image o
 
 So, what would such an Ember Component look like? Here you go:
 
-{%highlight javascript linenos%}
+~~~javascript
 App.ImageLoaderComponent = Ember.Component.extend({
   src: '',
   classNames: ['img_wrapper'],
@@ -41,7 +43,7 @@ App.ImageLoaderComponent = Ember.Component.extend({
     }.bind(this));
   }.on('didInsertElement')
 });
-{%endhighlight%}
+~~~
 
 
 We&#8217;ve been able to accomplish this effect in 12 lines of code. **This** is the Ember Zone. I was able to read the Barrel article, and directly translate it into an Ember Component without having to look anything up in the Ember guides – the concept translated directly into code that I thought should work, and it did.

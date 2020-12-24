@@ -2,8 +2,10 @@
 title: A 50,000 foot overview of the Ember.js Run Loop
 layout: post
 cover_image: /images/posts/typhoon-vongfong-iss.jpg
-categories:
+tags:
   - ember-core
+category: The Workshop
+published: true
 ---
 The Ember Zone HQ is currently being assailed by the remnants of the Super Typhoon Vongfong. Look at that thing (image courtesy of [Reid Weisman][1], Astronaut on the ISS), with its whirling loop of chaos in the middle, the eye, which is apparently 80KM wide. The eye is calm, surrounded by the most intense and fastest winds, with the speeds decreasing the further you are from the eye. Ember has its own whirling pseudo-loop of controlled chaos. Let&#8217;s look at the strangely named Ember Run Loop.
 

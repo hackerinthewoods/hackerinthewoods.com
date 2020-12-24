@@ -3,6 +3,7 @@ layout: post
 published: true
 title: Announcing Centerline
 description: A handy bookmarlet that lets you check the center alignment when designing in the Browser.
+category: The Workshop
 ---
 
 I like to design in the Browser. Sometimes I'm not quite sure if something is fully centered in the Browser window or not, so I made Centerline. Centerline
@@ -12,6 +13,6 @@ is just a dumb bookmarklet that adds a global 'center line' in your Browser view
 
 Just drag it onto your bookmark bar, and when you need that center line, click the hell out of it. Check it out:
 
-<img src='/images/posts/centerline.png' width="100%" />
+<img src='/assets/images/posts/centerline.png' width="100%" />
 
 To remove, just refresh the page.

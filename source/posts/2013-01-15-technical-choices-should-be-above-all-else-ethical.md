@@ -1,8 +1,9 @@
 ---
 layout: post
 published: true
-title: Technical choices should be - above all else - ethical.
+title: How to make technical choices
 description: Unless you're working for yourself, if you're building something for a client then your primary concern should be making ethical technical choices.
+category: The Cabin
 ---
 
 If you're working for yourself, in which case do whatever your little heart desires, but if you're building something for a client then your primary concern should be making ethical technical choices.
@@ -28,5 +29,3 @@ Or you could turn these questions on their head and make statements. Working for
 - An opportunity to introduce more risk into a project at the expense of the client's timelines.
 - An opportunity to blame the client for being 'stupid'. 
 - A chance to tread gray areas in order to expand your resume for the future. 
-
-Do you agree? Email me at <a href="mailto:john@mcdowall.info">john@mcdowall.info</a>.
