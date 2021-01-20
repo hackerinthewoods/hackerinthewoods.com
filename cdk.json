@@ -1,0 +1,17 @@
+{
+  "app": "bin/provision.js",
+  "context": {
+    "@aws-cdk/core:newStyleStackSynthesis": true,
+    "repo": {
+      "owner": "hackerinthewoods",
+      "name": "hackerinthewoods.com",
+      "branch": "main"
+    },
+    "zone": {
+      "hostedZoneId": "Z0398189300EEL9L8IW3T",
+      "zoneName": "hackerinthewoods.com"
+    },
+    "certificateArn": "arn:aws:acm:us-east-1:679467728454:certificate/f6a64089-0f40-4008-8bea-0b719a4dd566",
+    "hostName": "hackerinthewoods.com"
+  }
+}
