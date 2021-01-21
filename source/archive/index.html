@@ -7,7 +7,7 @@
         {% for post in data.markdownFiles %}
         {% if post.data.published %}
         <div class="flex justify-between">
-                <a href="{{ post.data.path|safe }}/{{ post.data.slug|safe }}">{{ post.data.title }}</a>
+                <a href="/{{ post.data.path|safe }}/{{ post.data.slug|safe }}">{{ post.data.title }}</a>
                 <time>{{ post.data.published_date }}</time>
         </div>
         {% endif %}

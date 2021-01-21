@@ -48,17 +48,6 @@ class WebsiteStack extends Stack {
       websiteErrorDocument: "404/index.html",
     });
 
-    new BucketDeployment(this, "DeployWebsite", {
-      actionName: "Website Deployment",
-      sources: [Source.asset(join(__dirname, "..", "..", "build"))],
-      destinationBucket: websiteAssets,
-      cacheControl: [
-        CacheControl.setPublic(),
-        CacheControl.maxAge(Duration.days(1)),
-      ],
-      prune: false,
-    });
-
     this.productionDistribution = new CloudFrontWebDistribution(
       this,
       `${id}-website-production-distribution`,
@@ -84,6 +73,19 @@ class WebsiteStack extends Stack {
         priceClass: PriceClass.PRICE_CLASS_100,
       }
     );
+
+    new BucketDeployment(this, "DeployWebsite", {
+      actionName: "Website Deployment",
+      sources: [Source.asset(join(__dirname, "..", "..", "build"))],
+      destinationBucket: websiteAssets,
+      distribution: this.productionDistribution,
+      distributionPaths: ["/*"],
+      cacheControl: [
+        CacheControl.setPublic(),
+        CacheControl.maxAge(Duration.days(1)),
+      ],
+      prune: false,
+    });
 
     new ARecord(this, `${id}-alias-record-production`, {
       zone,
