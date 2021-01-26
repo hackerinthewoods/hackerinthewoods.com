@@ -7,6 +7,7 @@ tags:
 category: The Workshop
 published: true
 ---
+
 The Ember Zone HQ is currently being assailed by the remnants of the Super Typhoon Vongfong. Look at that thing (image courtesy of [Reid Weisman][1], Astronaut on the ISS), with its whirling loop of chaos in the middle, the eye, which is apparently 80KM wide. The eye is calm, surrounded by the most intense and fastest winds, with the speeds decreasing the further you are from the eye. Ember has its own whirling pseudo-loop of controlled chaos. Let&#8217;s look at the strangely named Ember Run Loop.
 
 <!--more-->
@@ -19,7 +20,6 @@ We can have Ember show us its secret inboxes, or more correctly **queues**, at t
 
     > Ember.run.queues
     ["sync", "actions", "routerTransitions", "render", "afterRender", "destroy"]
-
 
 ### The Sync Queue
 
@@ -69,7 +69,7 @@ For the other 20% of the time, you can also look at the following excellent reso
 
 [Everything You Never Wanted to Know About the Ember Run Loop][4]
 
- [1]: https://twitter.com/astro_reid
- [2]: https://github.com/eoinkelly/ember-runloop-handbook
- [3]: http://talks.erikbryn.com/backburner.js-and-the-ember-run-loop/
- [4]: http://alexmatchneer.com/blog/2013/01/12/everything-you-never-wanted-to-know-about-the-ember-run-loop/
+[1]: https://twitter.com/astro_reid
+[2]: https://github.com/eoinkelly/ember-runloop-handbook
+[3]: http://talks.erikbryn.com/backburner.js-and-the-ember-run-loop/
+[4]: http://alexmatchneer.com/blog/2013/01/12/everything-you-never-wanted-to-know-about-the-ember-run-loop/

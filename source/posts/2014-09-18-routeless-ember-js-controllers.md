@@ -6,6 +6,7 @@ categories:
   - Controllers
 published: true
 ---
+
 The leaves are falling from the trees around the Island. Fall, or as I still like to call it, Autumn, is here. The temperature is getting a little cooler now, and the nights are drawing in, so pull up close for this tale of the Ghostly Routeless Controller.
 
 <!--more-->
@@ -16,35 +17,35 @@ Let&#8217;s look at how we can use a `Controller` without a `Route`, and some of
 
 We&#8217;re going to need four things to implement this feature:
 
-  * A `Controller` to represent our collection of Lost Souls.
-  * An `Initializer` to inject the Controller into the other primitives we wish to have access to the Lost Soul in.
-  * A `Template` to render the pathetic contents of the Locker.
+- A `Controller` to represent our collection of Lost Souls.
+- An `Initializer` to inject the Controller into the other primitives we wish to have access to the Lost Soul in.
+- A `Template` to render the pathetic contents of the Locker.
 
 ## The Controller
 
 Let&#8217;s look at the `Controller` first.
 
-~~~javascript
+```javascript
 App.DaveyJonesLockerController = Ember.ArrayController.extend({
   actions: {
-    addSoul: function() {
+    addSoul: function () {
       var person = {
-        name: 'A sad individual'
+        name: "A sad individual",
       };
       // Insert the 'model' at the head of the Array
       this.insertAt(0, person);
     },
-    emptyLocker: function() {
+    emptyLocker: function () {
       this.clear();
-    }
-  }
+    },
+  },
 });
-~~~
+```
 
 We&#8217;re declaring an `ArrayController` because our `DaveyJonesLockerController` is going to hold a collection of Lost Souls. The core action is `addSoul`, which has the following tasks:
 
-  * Construct a synthetic Model which stores the Lost Souls. I&#8217;m calling it synthetic because it isn&#8217;t backed by Ember Data or any other persistence library.
-  * Insert the new model at the head of the ArrayController.
+- Construct a synthetic Model which stores the Lost Souls. I&#8217;m calling it synthetic because it isn&#8217;t backed by Ember Data or any other persistence library.
+- Insert the new model at the head of the ArrayController.
 
 Finally, we declare an action called `emptyLocker` for handling when Davey is tired of these pathetic lost souls whining all the time.
 
@@ -52,14 +53,14 @@ Finally, we declare an action called `emptyLocker` for handling when Davey is ti
 
 But at this point, Ember won&#8217;t know about our `DaveyJonesLockerController`, and no `Route` we have defined will set it up. For that, we need an `Initializer`:
 
-~~~javascript
+```javascript
 Ember.Application.initializer({
-  name: 'daveyJonesLocker',
-  initialize: function(container, application){
-    application.inject('route', 'locker', 'controller:davey-jones-locker');
-  }
+  name: "daveyJonesLocker",
+  initialize: function (container, application) {
+    application.inject("route", "locker", "controller:davey-jones-locker");
+  },
 });
-~~~
+```
 
 Again, it&#8217;s very, almost childishly, simple. We use the `Initializer` and the convenience method `inject` available on the `application` variable to inject into any routes in the `Container` an instance of our `DaveyJonesLockerController`, and make it available from the `locker` property. As an aside, we could also have injected into any `Controller` like so:
 
@@ -71,8 +72,9 @@ And Controllers would also subsequently have an `locker` property they could acc
 
 Next, we build our `Template` that will be used with the `DaveyJonesLockerController`:
 
-~~~html
-~~~
+```html
+
+```
 
 In this `Template`, we&#8217;re saying if `length` isn&#8217;t a truthy value (in this case greater than zero, i.e. we have Lost Souls), then don&#8217;t display anything. Well, where does `length` come from? In this case `length` is found as a property on `ArrayController` and returns the underlying length of the `Array` the Controller is wrapping. The `Template` is said to be &#8216;proxying&#8217; the property lookup onto the ArrayController.
 
@@ -90,15 +92,15 @@ Here&#8217;s the complete example:
 
 Here&#8217;s how you might add souls to the locker from, say, an action in the Index template. We know from our Initializer that we injected a `locker` property that gives us access to our `DaveyJonesLockerController` onto all `Routes`. First, in the `IndexRoute`, we&#8217;ll capture the `addSoul` action from a button in the template:
 
-~~~javascript
-    App.IndexRoute = Ember.Route.extend({
-      actions: {
-        addSoul: function() {
-          this.get('locker').send('addSoul');
-        },
-      }
-    });
-~~~
+```javascript
+App.IndexRoute = Ember.Route.extend({
+  actions: {
+    addSoul: function () {
+      this.get("locker").send("addSoul");
+    },
+  },
+});
+```
 
 Next&#8230;well, that&#8217;s it! You&#8217;ve just added a soul from another template into the `DaveyJonesLockerController`.
 
@@ -116,6 +118,6 @@ Any time you have data, that still needs behaviour around it, but that doesn&#82
 
 Happy coding!
 
- [1]: http://ember.zone/beginning-to-understand-the-ember-js-container/
- [2]: http://en.wikipedia.org/wiki/Davy_Jones'_Locker
- [3]: http://emberjs.com/guides/templates/rendering-with-helpers/#toc_comparison-table
+[1]: http://ember.zone/beginning-to-understand-the-ember-js-container/
+[2]: http://en.wikipedia.org/wiki/Davy_Jones'_Locker
+[3]: http://emberjs.com/guides/templates/rendering-with-helpers/#toc_comparison-table

@@ -6,6 +6,7 @@ tags:
 category: The Workshop
 published: true
 ---
+
 There are several small satellite Islands that surround the main Island that I live on, and believe it or not seem to be fairly reasonably populated. The one depicted in the photo above reputedly has a retired Doctor living on it, who owns a small cannon which he fires off while dressed in full sea-captain regalia. I&#8217;ve definitely heard the cannon, but never seen the Doctor with my own eyes&#8230;yet. I am curious as to how these folks receive their mail, though. What would their address be? Well, this led me to think about how Ember finds the things it needs.
 
 <!--more-->
@@ -22,7 +23,6 @@ Previously we saw that we could register an object to be found at a particular &
 
     App.register('services:session', App.Session);
 
-
 This creates a link between the string &#8216;services:session&#8217; and our `App.Session` object. When we or Ember needs to perform a lookup on the `Container` for an object, the `Container` is internally going to use the `DefaultResolver` to do the reverse lookup of the `string` name we supply to get the actual object.
 
 ## Finding things not in the Container
@@ -33,7 +33,7 @@ The `DefaultResolver` has several methods for looking up `Routes`, `Models`, `He
 
 Let&#8217;s say you wanted to have all of your Modal dialog templates located under a `/modals` subdirectory of `/templates`. If you try to do that without overriding the `DefaultResolver`&#8216;s basic implementation of how Templates are looked up in `Ember.TEMPLATES`, Ember won&#8217;t be able to find the modal templates. Here&#8217;s how you could provide your own implementation that looks to see if a requested template ends in the word &#8216;modal&#8217;, and if it does, add the `/modals` prefix to the lookup path:
 
-~~~javascript
+```javascript
 window.App = Ember.Application.create(
   Resolver: Ember.DefaultResolver.extend({
     resolveTemplate: function(parsedName) {
@@ -50,7 +50,7 @@ window.App = Ember.Application.create(
   })
 
 )
-~~~
+```
 
 In the above example, we&#8217;ve replaced the stock Resolver that ships with Ember without our own, which extends the basic `DefaultResolver` and overrides the `resolveTemplate` hook to implement the Modal template lookup functionality we need. Maybe you&#8217;d also like to override how a Modal&#8217;s `Controller`s are also looked up to match the same folder convention. It&#8217;s possible using this technique.
 
@@ -58,6 +58,6 @@ In the above example, we&#8217;ve replaced the stock Resolver that ships with Em
 
 The `DefaultResolver` does a good job and is a main workhorse in Ember. Knowing what it does and how to tweak it as necessary can be very useful for establishing some of your own conventions, but use it with care.
 
- [1]: http://ember.zone/beginning-to-understand-the-ember-js-container/
- [2]: https://github.com/stefanpenner/ember-resolver
- [3]: http://ember.zone/ember-application-initializers/
+[1]: http://ember.zone/beginning-to-understand-the-ember-js-container/
+[2]: https://github.com/stefanpenner/ember-resolver
+[3]: http://ember.zone/ember-application-initializers/

@@ -1,9 +1,8 @@
-
 time {
   font-variant-numeric: tabular-nums;
-  font-feature-settings: 'tnum';
+  font-feature-settings: "tnum";
   font-family: serif;
-  font-size: .875rem;
+  font-size: 0.875rem;
 }
 
 html,
@@ -18,18 +17,30 @@ h4,
 h5,
 h6 {
   @apply font-mono font-bold uppercase;
+  color: hsl(220deg 100% 87%);
 }
 
 article {
   max-width: 48rem;
 
-  p {
+  p,
+  blockquote {
     color: hsl(220deg 15% 58%);
     margin-top: 1.2rem;
     margin-bottom: 1.2rem;
 
     &:first-child {
       margin-top: 0;
+    }
+  }
+
+  blockquote {
+    background-color: hsl(223deg 64% 7%);
+    border-left: 2px solid hsl(223 64% 12%);
+    padding: 1rem;
+    font-style: italic;
+    p {
+      margin-bottom: 0;
     }
   }
 }

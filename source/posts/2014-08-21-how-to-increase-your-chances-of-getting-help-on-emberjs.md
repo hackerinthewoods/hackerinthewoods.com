@@ -1,11 +1,12 @@
 ---
-title: 'How to increase your chances of getting help on #emberjs'
+title: "How to increase your chances of getting help on #emberjs"
 layout: post
 tags:
   - Ember
 category: The Workshop
 published: true
 ---
+
 I live on an [Island][1]. If I need help with something, it&#8217;s not always easy to get it right away. Sometimes I have to figure something out for myself, like a pleb. But enough of my Mountain Man ramblings.
 
 Here&#8217;s a great way to increase your ability to think for yourself for those times when you can&#8217;t quickly or easily get help, and when someone can help you, you&#8217;ve given them the best possible start for assisting. The Ember.js IRC channels are a great place to ask questions and get help when you&#8217;re stuck on something and the documentation isn&#8217;t helping or Stack Overflow is giving you snake eyes. But there&#8217;s an okay way and an excellent way to get help on #emberjs. Let&#8217;s see what the options are and how one is better than the other.
@@ -42,30 +43,28 @@ First step, is to try and extract the problem into a general high level example 
 
 Well, you can add Ember Data support with a couple of lines.
 
-  1. Add the script tag to the lastest build of Ember Data into the HTML. You can grab this easily from the <http://emberjs.com/builds/#/beta> page.
-  2. Setup the fixture adapter: `App.ApplicationAdapter = DS.FixtureAdapter.extend();`
-  3. Define a model:
+1. Add the script tag to the lastest build of Ember Data into the HTML. You can grab this easily from the <http://emberjs.com/builds/#/beta> page.
+2. Setup the fixture adapter: `App.ApplicationAdapter = DS.FixtureAdapter.extend();`
+3. Define a model:
 
-        App.ListItem = DS.Model.extend({
-          title: DS.attr('string')
-        });
+   App.ListItem = DS.Model.extend({
+   title: DS.attr('string')
+   });
 
+4. Define some Fixture data:
 
-  4. Define some Fixture data:
+   App.ListItem.FIXTURES = [
+   {
+   id: 1,
+   "title": "cat"
+   },
+   {
+   id: 2,
+   "title": "dog"
+   }
+   ];
 
-        App.ListItem.FIXTURES = [
-          {
-            id: 1,
-            "title": "cat"
-          },
-          {
-             id: 2,
-             "title": "dog"
-          }
-        ];
-
-
-  5. Done!</p>
+5. Done!</p>
 
 You&#8217;ve now got a simple data model setup.
 
@@ -79,6 +78,6 @@ Gists are ok, but if you really want to boost your chances of getting help, and 
 
 Try to incorporate JSBin into your daily Ember.js work and you&#8217;ll find it&#8217;ll make you a better Ember developer in no time at all.
 
- [1]: https://www.google.ca/maps/place/Bowen+Island,+BC/@49.3767427,-123.3704728,13z/data=!3m1!4b1!4m2!3m1!1s0x54866b0a15721b2f:0x1150cf2b21435466
- [2]: http://jsbin.com
- [3]: http://en.wikipedia.org/wiki/Rubber_duck_debugging
+[1]: https://www.google.ca/maps/place/Bowen+Island,+BC/@49.3767427,-123.3704728,13z/data=!3m1!4b1!4m2!3m1!1s0x54866b0a15721b2f:0x1150cf2b21435466
+[2]: http://jsbin.com
+[3]: http://en.wikipedia.org/wiki/Rubber_duck_debugging

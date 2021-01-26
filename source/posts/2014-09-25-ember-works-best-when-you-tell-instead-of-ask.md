@@ -6,6 +6,7 @@ tags:
 category: The Workshop
 published: true
 ---
+
 Welcome to another note from the Ember Zone. This week on the Island we&#8217;ve had a couple of days of really torrential rain, and sunsets like the one above. On one hand this is good because it replenishes the reservoir that we all get our drinking water from. On the other hand it shakes and knocks down all of the leaves from the trees that were ready to fall, which admittedly does create a pretty colourful carpet everywhere. The wind, to the rain, to the leaves, to my driveway. Nature&#8217;s binding system at work.
 
 This started me thinking about how Ember really excels when you take advantage of the fact that the optimal state of things when using Ember is to Tell, don&#8217;t Ask.
@@ -27,11 +28,9 @@ Any time you are reaching into another object to query the state of some propert
     // Assuming the controller has `someController` in its `needs`.
     this.get('controllers.someController.someProperty');
 
-
 Create a Computed Property using the `alias` macro on the object that needs to know the information like so:
 
     someProperty: Ember.computed.alias('controllers.someController.someProperty')
-
 
 The first example involves &#8216;asking&#8217;, and you might think that the second example also involves asking, because you&#8217;re setting the binding in the object that needs to know what&#8217;s going on. Turn that thinking around! When `someController.someProperty` changes, our own `someProperty` will change in kind. It&#8217;s implicitly told what to do via the Bindings system.
 
@@ -40,7 +39,6 @@ We can now create a new property based on our own bound property to further enha
     criticalCondition: function() {
       return this.get('someProperty') > 80;
     }.property('someProperty')
-
 
 **Update: This was an Observer before, but @locks pointed out it should be a Property because it doesn&#8217;t contain any behaviour, and rightly so. Thanks!**
 
@@ -52,5 +50,4 @@ Ember&#8217;s Bindings and Computed Properties system is probably the most power
 
 In short, whenever you feel yourself writing a long property path chain in a `get`, flip it around to use the Bindings system with something like a Computed proeprty.
 
-
- [1]: http://emberjs.com/guides/object-model/bindings/
+[1]: http://emberjs.com/guides/object-model/bindings/
