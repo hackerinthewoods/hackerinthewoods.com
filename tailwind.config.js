@@ -3,6 +3,7 @@ module.exports = {
     fontFamily: {
       serif: ["Crimson Pro", "Georgia", "sans-serif"],
       headers: ["Della Respira", "Georgia", "sans-serif"],
-    }
+      mono: ["Roboto Mono", "Courier New", "monospace"],
+    },
   },
 };

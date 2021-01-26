@@ -13,10 +13,10 @@
     <meta name="twitter:site" content="{{ data.site.twitter_handle }}">
   </head>
   <body>
-    {%- include './includes/top_nav.html.njk' -%}
     <main class="">
-      <article class='prose lg:prose-3xl p-2 md:p-4 mx-auto'>
-        <h1 class="pt-4">{{ data.title }}</h1>
+      {%- include './includes/top_nav.html.njk' -%}
+      <article class='p-2 md:p-4 mx-auto'>
+        <h1 class="pt-4 text-2xl">{{ data.title }}</h1>
         {{ content|safe -}}
       </article>
       {% include './includes/footer.html.njk' %}

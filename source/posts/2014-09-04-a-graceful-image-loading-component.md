@@ -1,5 +1,5 @@
 ---
-title: A Graceful Image Loading Component
+title: A Graceful Ember.js Image Loading Component
 layout: post
 tags:
   - Components
@@ -7,6 +7,7 @@ tags:
 category: The Workshop
 published: true
 ---
+
 Fall is definitely on its way out here in the Pacific North West. And that means lots of wood has to be chopped for Winter, so you&#8217;ll understand and bear with me if this week&#8217;s article is a little short gem that I&#8217;ve used on several occasions now.
 
 There are times when you might be loading a large image, that for whatever reason hasn&#8217;t been resized for displaying properly – topographical maps, sonar scans, aerial imagery or what have you, and you want a better experience for your users than having to watch the image slowly load. I&#8217;m going to show you how with a little CSS and DOM magic, you can have a slow loading image fade in when it is fully loaded.
@@ -23,28 +24,32 @@ Now, hopefully above you saw a nice little spinning pie, before a lovely image o
 
 So, what would such an Ember Component look like? Here you go:
 
-~~~javascript
+```javascript
 App.ImageLoaderComponent = Ember.Component.extend({
-  src: '',
-  classNames: ['img_wrapper'],
-  classNameBindings: ['loaded'],
+  src: "",
+  classNames: ["img_wrapper"],
+  classNameBindings: ["loaded"],
   loaded: false,
 
-  handleLoad: function() {
+  handleLoad: function () {
     var view = this;
 
     // Use jQuery's `one` to ensure the handler is remove afterwards
-    this.$().children('img').one('load', function() {
-      // Wrap in an Ember.run to stop Ember from guessing what to do:
-      // http://emberjs.com/guides/understanding-ember/run-loop/#toc_what-happens-if-i-forget-to-start-a-run-loop-in-an-async-handler
-      Ember.run(function(){
-        view.set('loaded', true);
-      });
-    }.bind(this));
-  }.on('didInsertElement')
+    this.$()
+      .children("img")
+      .one(
+        "load",
+        function () {
+          // Wrap in an Ember.run to stop Ember from guessing what to do:
+          // http://emberjs.com/guides/understanding-ember/run-loop/#toc_what-happens-if-i-forget-to-start-a-run-loop-in-an-async-handler
+          Ember.run(function () {
+            view.set("loaded", true);
+          });
+        }.bind(this)
+      );
+  }.on("didInsertElement"),
 });
-~~~
-
+```
 
 We&#8217;ve been able to accomplish this effect in 12 lines of code. **This** is the Ember Zone. I was able to read the Barrel article, and directly translate it into an Ember Component without having to look anything up in the Ember guides – the concept translated directly into code that I thought should work, and it did.
 
@@ -66,4 +71,4 @@ Thanks to Pat O&#8217;Callaghan for pointing out in the comments that I was stil
 
 More updates! Thanks to @mixonic for reaching out to point out there&#8217;s some reliability issues with the image `load` event in browsers – stay tuned for a complete overhaul of this component later!
 
- [1]: http://www.barrelny.com/blog/taking-control-of-imageloading/
+[1]: http://www.barrelny.com/blog/taking-control-of-imageloading/

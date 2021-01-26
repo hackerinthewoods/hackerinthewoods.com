@@ -1,14 +1,16 @@
 {% macro render(category, description, data) %}
-<div>
+<section>
     <h4 class='text-l font-bold'>{{category}}</h4>
     <p class='pb-4 italic'>{{description}}</p>
-    <ul class="prose divide divide-dotted">
+    <ul class="divide divide-dotted">
       {%- set categoryDataItems = data.categories[category] -%}
-      {%- for categoryItem in categoryDataItems -%}
+      {%- for categoryItem in categoryDataItems | limit(5) -%}
         {% if categoryItem.published %}
-        <li><a href="{{ categoryItem.path|safe }}/{{ categoryItem.slug|safe }}">{{ categoryItem.title|safe }}</a></li>
+        <li>
+          <a class="underline" href="{{ categoryItem.path|safe }}/{{ categoryItem.slug|safe }}">{{ categoryItem.title|safe }}</a>
+        </li>
         {% endif %}
       {%- endfor %}
     </ul>
-</div>
+</section>
 {% endmacro %}

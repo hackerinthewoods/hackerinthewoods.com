@@ -8,7 +8,7 @@ time {
 
 html,
 body {
-  @apply font-serif;
+  @apply font-mono;
 }
 
 h1,
@@ -17,5 +17,19 @@ h3,
 h4,
 h5,
 h6 {
-  @apply font-headers font-bold uppercase;
+  @apply font-mono font-bold uppercase;
+}
+
+article {
+  max-width: 48rem;
+
+  p {
+    color: hsl(220deg 15% 58%);
+    margin-top: 1.2rem;
+    margin-bottom: 1.2rem;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
 }

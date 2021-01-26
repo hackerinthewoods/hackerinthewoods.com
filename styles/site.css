@@ -4,3 +4,15 @@
 
 @import "fonts.css";
 @import "code_highlighting.css";
+
+body {
+  background-color: #000;
+  color: white;
+}
+
+main {
+  background-color: hsl(222deg 68% 2%);
+  margin: 32px;
+  padding: 1rem;
+  min-height: 100%;
+}

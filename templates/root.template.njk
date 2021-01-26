@@ -1,8 +1,10 @@
 <html>
   {% include './includes/head.html.njk' %}
   <body>
-    {% block content %}{% endblock %}
-    {{ content|safe }}
-    {% include './includes/footer.html.njk' %}
+    <main>
+      {% block content %}{% endblock %}
+      {{ content|safe }}
+      {% include './includes/footer.html.njk' %}
+    </main>
   </body>
 </html>

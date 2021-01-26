@@ -6,7 +6,7 @@
     <div class='p-2 md:max-w-4xl mx-auto'>
         <div class='grid md:grid-cols-3 gap-4'>
             {%- import 'includes/category_posts.html.njk' as category_section -%}
-            {{ category_section.render('the cabin', 'Posts about building SaaS, UX and general stuff.', data) }}
+            {{ category_section.render('the cabin', 'Posts about building SaaS, UX &amp; general stuff.', data) }}
             {{ category_section.render('the workshop', 'Technical posts about Software Engineering etc.', data) }}
             {{ category_section.render('the backwoods', 'Philosophy, meta, weird, and junk.', data) }}
         </div>
