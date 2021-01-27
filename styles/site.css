@@ -8,11 +8,42 @@
 body {
   background-color: #000;
   color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+.landing {
+  header {
+    background-color: hsl(222deg 18% 6%);
+
+    height: calc(100vh - 64px);
+  }
+}
+
+
 main {
-  background-color: hsl(222deg 68% 2%);
+  background-color: hsl(222deg 18% 6%);
   margin: 32px;
   padding: 1rem;
-  min-height: 100%;
+}
+
+.typewriter {
+  width: 30ch;
+  height: 3ex;
+  animation: typing 4s steps(28), blink .8s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 16px solid;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
 }

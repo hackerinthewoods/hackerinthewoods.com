@@ -20,6 +20,37 @@ h6 {
   color: hsl(220deg 100% 87%);
 }
 
+h1 {
+  font-weight: 800;
+  font-size: 2.25em;
+  margin-top: 0;
+  margin-bottom: 0.8888889em;
+  line-height: 1.1111111;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  line-height: 1.3333333;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: 1.25em;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+  line-height: 1.6;
+}
+
+h4 {
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  line-height: 1.5;
+}
+
 article {
   max-width: 48rem;
 
@@ -43,4 +74,91 @@ article {
       margin-bottom: 0;
     }
   }
+
+  a {
+    text-decoration: underline;
+    font-weight: 500;
+    color: hsl(220deg 48% 60%);
+  }
+
+  code {
+    font-weight: 600;
+    font-size: 0.875em;
+    @apply font-mono;
+  }
+
+
+}
+
+ul {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  color: hsl(220deg 15% 58%);
+}
+
+ul > li p {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+ul > li > *:first-child {
+  margin-top: 1.25em;
+}
+
+ul > li > *:last-child {
+  margin-bottom: 1.25em;
+}
+
+ol > li > *:first-child {
+  margin-top: 1.25em;
+}
+
+ol > li > *:last-child {
+  margin-bottom: 1.25em;
+}
+
+ul ul, ul ol, ol ul, ol ol {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+ol {
+  counter-reset: list-counter;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+ol > li {
+  position: relative;
+  counter-increment: list-counter;
+  padding-left: 1.75em;
+}
+
+ol > li::before {
+  content: counter(list-counter) ".";
+  position: absolute;
+  font-weight: 400;
+  color: #6b7280;
+  left: 0;
+}
+
+ul > li {
+  position: relative;
+  padding-left: 1.75em;
+}
+
+ul > li::before {
+  content: "";
+  position: absolute;
+  background-color: #d1d5db;
+  border-radius: 50%;
+  width: 0.375em;
+  height: 0.375em;
+  top: calc(0.875em - 0.1875em);
+  left: 0.25em;
 }
