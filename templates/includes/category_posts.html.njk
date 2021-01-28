@@ -6,7 +6,7 @@
       {%- set categoryDataItems = data.categories[category] -%}
       {%- for categoryItem in categoryDataItems | limit(5) -%}
         {% if categoryItem.published %}
-        <li>
+        <li class="text-sm">
           <a class="underline" href="{{ categoryItem.path|safe }}/{{ categoryItem.slug|safe }}">{{ categoryItem.title|safe }}</a>
         </li>
         {% endif %}

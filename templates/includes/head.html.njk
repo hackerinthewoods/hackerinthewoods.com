@@ -8,3 +8,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Della+Respira&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+<script type='text/javascript'>
+  window.addEventListener('DOMContentLoaded', (event) => {
+
+    const navButtonEl = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links')
+
+      navButtonEl.addEventListener('click', function(ev) {
+        navLinks.classList.toggle('show') 
+      })
+  });
+</script>

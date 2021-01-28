@@ -1,18 +1,31 @@
 <html>
   {% include './includes/head.html.njk' %}
   <body class='landing'>
+    <nav>
+      <div class='nav-links'>
+        <a href="/">Home</a>
+        <a href='/about'>About</a>
+        <a href='/archive'>Archive</a>
+        <a href='https://twitter.com/hackrinthewoods/'>@hackrinthewoods</a>
+      </div>
+      <button class='nav-toggle'>
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
     <header class='flex flex-col md:m-8'>
       <section class='h-full grid md:grid-cols-2'>
 
-      <div class='flex flex-col md:self-center text-center md:text-left ml-4 md:ml-8 order-2 md:order-1'>
-        <h1 class="font-term tracking-widest text-center text-3xl typewriter mx-auto md:ml-0">THE HACKER IN THE WOODS</h1>
-        <p>Ex nihilo nihil fit</p>
-      </div>
-      <div class='flex items-center justify-center order-1 md:order-2'>
-        <img src="{{ '/assets/images/logo.svg' }}" class="w-32 md:w-40" />
-      </div>
+        <div class='flex flex-col md:self-center text-center md:text-left ml-4 md:ml-8 order-2 md:order-1'>
+          <h1 class="font-term tracking-widest text-center text-3xl typewriter mx-auto md:ml-0 mb-0">THE HACKER IN THE WOODS</h1>
+          <p>Ex nihilo nihil fit</p>
+        </div>
+        <div class='flex items-center justify-center order-1 md:order-2'>
+          <img src="{{ '/assets/images/logo.svg' }}" class="w-32 md:w-40" />
+        </div>
       </section>
-      <div class='flex items-center justify-center mb-4'>
+      <div class='flex items-center justify-center mb-8'>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down icon"><polyline points="6 9 12 15 18 9"></polyline></svg>
       </div>
     </header>
