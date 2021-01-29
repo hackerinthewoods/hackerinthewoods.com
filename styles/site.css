@@ -16,24 +16,29 @@ body {
   header {
     background-color: hsl(222deg 18% 6%);
 
-    height: calc(100vh - 64px);
+    height: calc(100vh - 128px);
   }
 }
 
 
 main {
   background-color: hsl(222deg 18% 6%);
-  margin: 32px;
-  padding: 1rem;
+  max-width: 1500px;
 }
 
 .typewriter {
   width: 30ch;
   height: 3ex;
-  animation: typing 4s steps(28), blink .8s step-end infinite alternate;
+  animation: typing 2s steps(28), blink .8s step-end infinite alternate;
   white-space: nowrap;
   overflow: hidden;
   border-right: 16px solid;
+}
+
+@media (max-width: 639px) {
+  .typewriter {
+    width: 31ch;
+  }
 }
 
 @keyframes typing {
@@ -49,16 +54,13 @@ main {
 }
 
 nav {
-  display: flex;
-  justify-content: flex-end;
-  margin: 2rem 2rem 1rem 2rem;
   text-transform: uppercase;
 
   .nav-links {
-    transition: all 300ms ease-in-out;
-    filter: blur(20px);
+    transition: all 300ms ease-in;
     opacity: 0;
     transform: translateX(10px);
+    pointer-events: none;
 
     a {
       color: #d9d9d9;
@@ -69,9 +71,10 @@ nav {
     }
 
     &.show {
-      filter: blur(0);
       opacity: 1;
       transform: translateX(0);
+      pointer-events: inherit;
+      height: auto;
     }
   }
 
@@ -82,7 +85,6 @@ nav {
     justify-content: center;
     height: 24px;
     width: 24px;
-    margin-left: 1rem;
 
     &:hover {
       span {
