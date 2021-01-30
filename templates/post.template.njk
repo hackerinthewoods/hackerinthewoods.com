@@ -4,21 +4,19 @@
     <meta property="og:site_name" content="{{ data.site.site_name }}">
     <meta property="og:title" content="{{ data.title }} {{ data.title_site_separator }} {{ data.site_name }}">
     <meta property="og:description" content="{{ data.description }}">
-    {%- if data.cover_image -%}
-    <meta property="og:image" content="{{ data.site.site_url }}/assets/images/{{ data.cover_image }}">
-    {%- endif -%}
-    <meta property="og:url" content="{{ data.site.site_url }}/{{ data.slug }}">
+    <meta property="og:image" content="{{ data.site.site_url }}/posts/{{ data.slug }}/social-image.png">
+    <meta property="og:url" content="{{ data.site.site_url }}/posts/{{ data.slug }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image:alt" content="{{ data.title }}">
     <meta name="twitter:site" content="{{ data.site.twitter_handle }}">
   </head>
   <body>
-    <main class="">
-      <div class='md:mr-8'>
+    <main class="md:mx-auto">
+      <div class='px-2 md:px-0'>
         {%- include './includes/post_top_nav.html.njk' -%}
       </div>
-      <article class='p-2 md:p-4 mx-auto'>
-        <h1 class="pt-4 text-xl md:text-3xl">{{ data.title }}</h1>
+      <article class='p-2 md:p-4 md:mx-auto'>
+        <h1 class="pt-4 text-xl md:text-3xl md:py-12 md:text-center">{{ data.title }}</h1>
         {{ content|safe -}}
       </article>
     </main>

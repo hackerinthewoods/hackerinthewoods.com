@@ -22,8 +22,7 @@ body {
 
 
 main {
-  background-color: hsl(222deg 18% 6%);
-  max-width: 1500px;
+  max-width: 1200px;
 }
 
 .typewriter {
@@ -57,7 +56,7 @@ nav {
   text-transform: uppercase;
 
   .nav-links {
-    transition: all 300ms ease-in;
+    transition: all 200ms ease-in;
     opacity: 0;
     transform: translateX(10px);
     pointer-events: none;
@@ -93,11 +92,41 @@ nav {
     }
 
     span {
-      transition: all 300ms ease-in-out;
+      transition: all 200ms ease-in-out;
       background: #9e9e9e;
       margin: 3px 0;
       height: 1px;
       width: 1rem;
     }
   }
+}
+
+@media (max-width: 639px) {
+	nav {
+    .nav-links {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      height: 100%;
+
+      a {
+        margin-bottom: 1.4rem;
+      }
+
+      &.show {
+
+      }
+    }
+
+    button {
+      z-index: 100;
+    }
+	}
 }

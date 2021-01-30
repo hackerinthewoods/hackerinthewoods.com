@@ -3,6 +3,7 @@
 {% block content %}
 <main class="p-2 md:p-4 mx-auto">
     <div class="">
+        <h1>Archive</h1>
         {% for post in data.markdownFiles %}
         {% if post.data.published %}
         <div class="flex justify-between">
