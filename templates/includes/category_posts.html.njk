@@ -1,6 +1,6 @@
 {% macro render(category, description, data) %}
 <section>
-    <h4 class='text-l font-bold'>{{category}}</h4>
+    <h2 class='text-l font-bold'>{{category}}</h2>
     <p class='pb-4 italic text-sm'>{{description}}</p>
     <ul class='list-disc list-inside md:list-outside md:pr-4'>
       {%- set categoryDataItems = data.categories[category] -%}
