@@ -2,11 +2,11 @@
 <section>
     <h4 class='text-l font-bold'>{{category}}</h4>
     <p class='pb-4 italic text-sm'>{{description}}</p>
-    <ul class="divide divide-dotted">
+    <ul class='list-disc list-inside md:list-outside md:pr-4'>
       {%- set categoryDataItems = data.categories[category] -%}
-      {%- for categoryItem in categoryDataItems | limit(5) -%}
+      {%- for categoryItem in categoryDataItems | limit(4) -%}
         {% if categoryItem.published %}
-        <li class="text-sm">
+        <li class="text-sm mb-2 md:mb-4">
           <a class="underline" href="{{ categoryItem.path|safe }}/{{ categoryItem.slug|safe }}">{{ categoryItem.title|safe }}</a>
         </li>
         {% endif %}
