@@ -14,9 +14,12 @@
 
     const navButtonEl = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links')
+    const bodyEl = document.querySelector('body')
 
       navButtonEl.addEventListener('click', function(ev) {
         navLinks.classList.toggle('show') 
+        bodyEl.classList.toggle('overflow-hidden')
+        bodyEl.classList.toggle('md:overflow-auto')
       })
   });
 </script>
