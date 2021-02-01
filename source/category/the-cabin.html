@@ -1,0 +1,6 @@
+{% extends 'page.template.njk' %}
+
+{% block content %}
+{%- import 'includes/category_all_posts.html.njk' as category_section -%}
+{{ category_section.render('the cabin', 'Indie dev life.', data) }}
+{% endblock %}
