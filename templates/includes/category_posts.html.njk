@@ -1,7 +1,7 @@
 {% macro render(category, description, data) %}
 <section>
-    <h2 class='text-l font-bold'>{{category}}</h2>
-    <p class='pb-4 italic text-sm'>{{description}}</p>
+    <h2 class='text-l font-bold mb-0'>{{category}}</h2>
+    <p class='pb-4 italic text-sm mb-4'>{{description}}</p>
     <ul class='list-disc list-inside md:list-outside md:pr-4'>
       {%- set categoryDataItems = data.categories[category] -%}
       {%- for categoryItem in categoryDataItems | limit(4) -%}
@@ -12,5 +12,6 @@
         {% endif %}
       {%- endfor %}
     </ul>
+    <a href='/category/{{category | replace(' ', '-')}}'>More posts &rarr;</a>
 </section>
 {% endmacro %}
