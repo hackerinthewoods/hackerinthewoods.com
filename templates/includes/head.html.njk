@@ -5,21 +5,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link rel="icon" type="image/svg+xml" href="/assets/images/site_favicon.svg">
 <link rel="stylesheet" href="/assets/css/site.css">
-<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=Della+Respira&display=swap" rel="stylesheet"> 
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
 <script type='text/javascript'>
   window.addEventListener('DOMContentLoaded', (event) => {
-
     const navButtonEl = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links')
     const bodyEl = document.querySelector('body')
 
-      navButtonEl.addEventListener('click', function(ev) {
-        navLinks.classList.toggle('show') 
-        bodyEl.classList.toggle('overflow-hidden')
-        bodyEl.classList.toggle('md:overflow-auto')
-      })
+    navButtonEl.addEventListener('click', function(ev) {
+      navLinks.classList.toggle('show') 
+      bodyEl.classList.toggle('overflow-hidden')
+      bodyEl.classList.toggle('md:overflow-auto')
+    })
   });
 </script>
