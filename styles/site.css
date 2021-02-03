@@ -6,7 +6,7 @@
 @import "code_highlighting.css";
 
 body {
-  background-color: #000;
+  @apply bg-plate;
   color: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -14,7 +14,7 @@ body {
 
 .landing {
   header {
-    background-color: hsl(222deg 18% 6%);
+    background-color: hsl(222deg, 18%, 6%);
 
     height: calc(100vh - 128px);
   }
