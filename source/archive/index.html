@@ -1,8 +1,7 @@
 {% extends 'page.template.njk' %}
 
 {% block content %}
-<main class="p-2 md:p-4 mx-auto">
-    <div class="">
+    <div class="md:max-w-6xl mx-auto pt-4">
         <h1>Archive</h1>
         {% for post in data.markdownFiles %}
         {% if post.data.published %}
@@ -13,5 +12,4 @@
         {% endif %}
         {% endfor %}
     </div>
-</main>
 {% endblock %}
