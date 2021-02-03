@@ -7,7 +7,7 @@
   {%- for categoryItem in categoryDataItems -%}
   {% if categoryItem.published %}
   <div class="flex flex-col md:flex-row flex-wrap md:justify-between mb-8">
-    <a class="underline" href="/{{ categoryItem.path|safe }}/{{ categoryItem.slug|safe }}">{{ categoryItem.title|safe }}</a>
+    <a class="underline text-contrast-medium hover:text-contrast-high" href="/{{ categoryItem.path|safe }}/{{ categoryItem.slug|safe }}">{{ categoryItem.title|safe }}</a>
     <time class="font-mono">{{ categoryItem.published_date }}</time>
   </div>
   {% endif %}

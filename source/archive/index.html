@@ -7,7 +7,7 @@
         {% for post in data.markdownFiles %}
         {% if post.data.published %}
         <div class="flex flex-col md:flex-row flex-wrap md:justify-between mb-8">
-            <a href="/{{ post.data.path|safe }}/{{ post.data.slug|safe }}">{{ post.data.title }}</a>
+            <a class='text-contrast-medium hover:text-contrast-high' href="/{{ post.data.path|safe }}/{{ post.data.slug|safe }}">{{ post.data.title }}</a>
             <time class="font-mono">{{ post.data.published_date }}</time>
         </div>
         {% endif %}
