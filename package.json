@@ -5,6 +5,7 @@
     "provision": "bin/provision.js"
   },
   "scripts": {
+    "start": "dirokime build -w",
     "deploy:prod": "dirokime build prod && yarn cdk deploy --profile jmd"
   },
   "devDependencies": {
