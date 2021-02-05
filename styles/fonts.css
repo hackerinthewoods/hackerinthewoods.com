@@ -53,16 +53,22 @@ h4 {
 
 article {
   max-width: 48rem;
+  @apply text-contrast-medium;
 
   p,
   blockquote {
-    @apply text-contrast-medium;
     margin-top: 1.2rem;
     margin-bottom: 1.2rem;
 
     &:first-child {
       margin-top: 0;
     }
+  }
+
+  code {
+    @apply bg-contrast-low;
+    padding: .1rem .25rem;
+    border-radius: .25rem;
   }
 
   blockquote {
@@ -95,7 +101,10 @@ article {
   li {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-    color: hsl(220deg 15% 58%);
+
+    pre {
+      margin-top: 1.25em;
+    }
   }
 
   ul > li p {
@@ -140,7 +149,6 @@ article {
     content: counter(list-counter) ".";
     position: absolute;
     font-weight: 400;
-    color: #6b7280;
     left: 0;
   }
 

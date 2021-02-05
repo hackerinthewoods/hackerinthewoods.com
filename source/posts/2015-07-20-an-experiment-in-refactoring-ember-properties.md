@@ -35,9 +35,6 @@ Typically these properties are the results of requirements from the UI to displa
 
 Let's look at how we could save ourselves from manually having to define lots of boilerplate properties.
 
-## Higher Order Functions 
-Any function that takes another function as a parameter, or returns a function as its result is a Higher Order Function. Given that functions are first class citizens in Javascript, it's pretty easy, even casual to use Higher Order Functions to clean up functions that differ only by name and the property referenced. Can we use Higher Order Functions to create the `notEmpty` Computed Properties for us? Let's see. 
-
 ## Take 1: Using Ember's `defineProperty` Method
 
 Ember provides a method which allows you to perform a basic level of meta-programming by defining properties at runtime. The parameters for `defineProperty` are (basically):
@@ -50,9 +47,7 @@ Which looks like this:
 
 `Ember.defineProperty(this, myCpPropName, Ember.computed('propName', function(){...});`
 
-We're now going to use a Higher Order Function to pass back to `defineProperty` so that the Computed Property has a dynamic value.
-
-_Note that this is a trivial example for the purposes of showing how Higher Order Functions can be used, and the example is chosen to illustrate the technique._
+We're now going to use a function to pass back to `defineProperty` so that the Computed Property has a dynamic value.
 
 And with that in mind lets look at the solution:
 
@@ -61,13 +56,6 @@ import Ember from 'ember';
 
 const { computed, on } = Ember;
 
-// This is our Higher Order Function, that we are passing in the field name
-// to so that it can be captured by the Computed Property and returned as the
-// function to be called. 
-//
-// We define it here because if we defined it on the Component we would expose
-// a method on the public API which is not usable outside the component, and 
-// only returns a descriptor. 
 const has = (field) => { return computed.notEmpty(field); };
 
 let LoginComponent = Ember.Component.extend({
@@ -105,7 +93,6 @@ import Ember from 'ember';
 
 const { computed, on } = Ember;
 
-// Our Higher Order Function, as before
 const has = (field) => { return computed.notEmpty(field); }
 
 // The Component UI fields as before. 
@@ -139,7 +126,7 @@ So obviously this got a little messy looking, as changes to optimize for perform
 
 At the end of our exploration, we can see how it might be possbile to clean up and auto generate boilerplate Computed Properties. In the end things looked a litlle messy, and obviously you wouldn't use this technique to clean up two properties. 
 
-That said, I feel like there's the bones of a simple validation system here. You could build a simple form validation system on this technique with some pre-canned validators that are higher order functions along the lines of the `has` function, for example `minLength`, `maxLength` and so on. Then the `UI_FIELDS` value would be expanded to an object, and each field name would have associated keys describing the validation to use, defaults, etc. 
+That said, I feel like there's the bones of a simple validation system here. You could build a simple form validation system on this technique with some pre-canned validator functions along the lines of the `has` function, for example `minLength`, `maxLength` and so on. Then the `UI_FIELDS` value would be expanded to an object, and each field name would have associated keys describing the validation to use, defaults, etc. 
 
 It was an interesting diversion for me, and hopefuly you learned something new. 
 
